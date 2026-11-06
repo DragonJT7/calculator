@@ -3,7 +3,7 @@ name: Compile and Test Under Unity
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
         run: sudo apt-get install -y gcc
 
       - name: Compile tests 
-        run: gcc -I unity/src/ main/test.c unity/src/unity.c -o tests
+        run: gcc -I unity/src/ main/test.c unity/src/unity.c -o tests -lm
 
       - name: Run tests
         run: ./tests
